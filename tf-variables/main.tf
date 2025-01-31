@@ -10,6 +10,11 @@ terraform {
 provider "aws" {
     region = "us-east-1" #manually single region
 }
+#If any task which repeat multiple then we sue local variable
+    locals {
+      onwer = "ABC"
+      Name = "Myserver"
+    }
 
 resource "aws_instance" "tfserver" {
    # ami = "ami-043a5a82b6cf98947" #amazon linux 2
@@ -26,8 +31,10 @@ resource "aws_instance" "tfserver" {
     #     Name = "tfserver"
     # }
     
-    tags = merge(var.additional_tags,{
-        Name = "tfserver"
-    })
-  
+    # tags = merge(var.additional_tags,{
+    #     Name = "tfserver"
+    # })
+  tags = merge(var.additional_tags,{
+        Name = locals.Name
+     })
 }
