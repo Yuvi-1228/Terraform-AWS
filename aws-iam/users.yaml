@@ -1,0 +1,8 @@
+users:
+  - username: Yuvi
+    roles: [AdministratorAccess]
+  - username: Raj
+    roles: [AmazonEC2FullAccess]
+  - username: ho 
+    roles: [AmazonS3ReadOnlyAccess, AmazonEC2FullAccess]
+
